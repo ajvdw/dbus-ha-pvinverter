@@ -16,7 +16,7 @@ The following script should do everything for you:
 ```
 wget https://github.com/ajvdw/dbus-ha-pvinverter/archive/refs/heads/main.zip
 unzip main.zip "dbus-ha-pvinverter-main/*" -d /data
-mv /data/dbus-ha-pvinverter /data/dbus-ha-pvinverter
+mv /data/dbus-ha-pvinverter-main /data/dbus-ha-pvinverter
 chmod a+x /data/dbus-ha-pvinverter/install.sh
 /data/dbus-ha-pvinverter/install.sh
 rm main.zip
