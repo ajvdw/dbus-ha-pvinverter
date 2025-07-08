@@ -45,7 +45,7 @@ svstat /service/dbus-ha-pvinverter
 
 ### Also useful:
 
-tail -f /var/log/dbus-ha-pvinverter/current | tai64nlocal
+tail -f /data/dbus-ha-pvinverter/current.log | tai64nlocal
 
 ### Stop the script
 svc -d /service/dbus-ha-pvinverter
