@@ -47,7 +47,7 @@ class DbusHAPVInverterService:
         self._dbusservice.add_path('/FirmwareVersion', 0.2)
         self._dbusservice.add_path('/HardwareVersion', 0)
         self._dbusservice.add_path('/Connected', 1)
-        self._dbusservice.add_path('/Role', role)
+        self._dbusservice.add_path('/Role', 'pvinverter')
         self._dbusservice.add_path('/Position', 0) 
         self._dbusservice.add_path('/Serial', self._getSerial())
         self._dbusservice.add_path('/UpdateIndex', 0)
@@ -133,8 +133,8 @@ class DbusHAPVInverterService:
             #send data to DBus for 3phase system
             self._dbusservice['/Ac/Power'] = pv_data['power']
             self._dbusservice['/Ac/L1/Voltage'] = pv_data['l1_v']
-            self._dbusservice['/Ac/L1/Voltage'] = pv_data['l2_v']
-            self._dbusservice['/Ac/L1/Voltage'] = pv_data['l3_v']
+            self._dbusservice['/Ac/L2/Voltage'] = pv_data['l2_v']
+            self._dbusservice['/Ac/L3/Voltage'] = pv_data['l3_v']
             self._dbusservice['/Ac/L1/Current'] = pv_data['l1_i']
             self._dbusservice['/Ac/L2/Current'] = pv_data['l2_i']
             self._dbusservice['/Ac/L3/Current'] = pv_data['l3_i']
@@ -211,6 +211,7 @@ def main():
         #start our main-service
         
         pvac_output = DbusHAPVInverterService(
+            servicename='com.victronenergy.pvinverter.ha',
             paths={
                 '/Ac/Energy/Forward': {'initial': 0, 'textformat': _kwh}, # energy bought from the grid
                 '/Ac/Energy/Reverse': {'initial': 0, 'textformat': _kwh}, # energy sold to the grid
