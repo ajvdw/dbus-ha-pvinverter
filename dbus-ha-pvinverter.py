@@ -23,13 +23,12 @@ from vedbus import VeDbusService
 
 
 class DbusHAPVInverterService:
-    def __init__(self, paths, productname='PV Inverter', connection='HA PVInverter HTTP JSOn service'):
+    def __init__(self, servicename, paths, productname='PV Inverter', connection='HA PVInverter HTTP JSOn service'):
         config = self._getConfig()
         deviceinstance = int(config['DEFAULT']['DeviceInstance'])
         customname = config['DEFAULT']['CustomName']
-        role = 'pvinverter'
-        servicename = 'com.victronenergy.' + role
-        productid = 45069
+
+        productid = 0xFFFF #45069
 
         self._dbusservice = VeDbusService("{}.http_{:02d}".format(servicename, deviceinstance))
         self._paths = paths
@@ -68,12 +67,12 @@ class DbusHAPVInverterService:
         gobject.timeout_add(self._getSignOfLifeInterval()*60*1000, self._signOfLife)
     
     def _getSerial(self):
-        meter_data = self._getData()  
+        pv_data = self._getData()  
         
-        if not meter_data['unique_id']:
+        if not pv_data['unique_id']:
             raise ValueError("Response does not contain 'unique_id' attribute")
         
-        serial = meter_data['unique_id']
+        serial = pv_data['unique_id']
         return serial
 
     def _getConfig(self):
