@@ -35,19 +35,25 @@ Within the project there is a file `/data/dbus-ha-pvinverter/config.ini` - just 
 | DEFAULT  | Host | IP or hostname of the homeassistant api |
 | DEFAULT  | Token | Long lived token from homeassistant/profile/security |
 
-python /data/dbus-huaweisun2000-pvinverter/dbus-huaweisun2000-pvinverter.py
+python /data/dbus-ha-pvinverter/dbus-ha-pvinverter.py
 
-###Also useful:
+
+### Debugging
+You can check the status of the service with svstat:
+
+svstat /service/dbus-ha-pvinverter
+
+### Also useful:
 
 tail -f /var/log/dbus-ha-pvinverter/current | tai64nlocal
 
-###Stop the script
+### Stop the script
 svc -d /service/dbus-ha-pvinverter
 
-###Start the script
+### Start the script
 svc -u /service/dbus-ha-pvinverter
 
-###Restart the script
+### Restart the script
 If you want to restart the script, for example after changing it, just run the following command:
 
 sh /data/dbus-ha-pvinverter/restart.sh
