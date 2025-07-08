@@ -1,30 +1,30 @@
-# dbus-esphome-p1
-Integrate ESPHome P1 meter into [Victron Energy Venus OS](https://github.com/victronenergy/venus)
+# dbus-ha-pvinverter
+Integrate your PVInverter from HomeAssistant into [Victron Energy Venus OS](https://github.com/victronenergy/venus)
 
 ## Purpose
-With the scripts in this repo it should be possible to add the ESPhome P1 meter to VenusOS. 
+With the scripts in this repo it should be possible to add the PVInverter to VenusOS. 
 
 ## Origin
 This repo is based on similar projects for shelly and home wizard integration
 
 ## Install & Configuration
 ### Get the code
-Just grap a copy of the main branche and copy them to `/data/dbus-esphome-p1`.
+Just grap a copy of the main branche and copy them to `/data/dbus-ha-pvinverter`.
 After that call the install.sh script.
 
 The following script should do everything for you:
 ```
-wget https://github.com/ajvdw/dbus-esphome-p1/archive/refs/heads/main.zip
-unzip main.zip "dbus-esphome-p1-main/*" -d /data
-mv /data/dbus-esphome-p1-main /data/dbus-esphome-p1
-chmod a+x /data/dbus-esphome-p1/install.sh
-/data/dbus-esphome-p1/install.sh
+wget https://github.com/ajvdw/dbus-ha-pvinverter/archive/refs/heads/main.zip
+unzip main.zip "dbus-ha-pvinverter-main/*" -d /data
+mv /data/dbus-ha-pvinverter /data/dbus-ha-pvinverter
+chmod a+x /data/dbus-ha-pvinverter/install.sh
+/data/dbus-ha-pvinverter/install.sh
 rm main.zip
 ```
 ⚠️ Check configuration after that - because service is already installed an running and with wrong connection data (host, username, pwd) you will spam the log-file
 
 ### Change config.ini
-Within the project there is a file `/data/dbus-esphome-p1/config.ini` - just change the values - most important is the host
+Within the project there is a file `/data/dbus-ha-pvinverter/config.ini` - just change the values - most important is the host
 
 | Section  | Config vlaue | Explanation |
 | ------------- | ------------- | ------------- |
@@ -32,7 +32,9 @@ Within the project there is a file `/data/dbus-esphome-p1/config.ini` - just cha
 | DEFAULT  | CustomName  | Name of your device - usefull if you want to run multiple versions of the script |
 | DEFAULT  | DeviceInstance  | DeviceInstanceNumber e.g. 40 |
 | DEFAULT  | LogLevel  | Define the level of logging - lookup: https://docs.python.org/3/library/logging.html#levels |
-| DEFAULT  | Host | IP or hostname of the ESPHome device |
+| DEFAULT  | Host | IP or hostname of the homeassistant api |
+| DEFAULT  | Token | Long lived token from homeassistant/profile/security |
+
 
 ## Used documentation
 - https://github.com/victronenergy/venus/wiki/dbus#grid   DBus paths for Victron namespace GRID
