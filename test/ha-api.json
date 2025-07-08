@@ -1,0 +1,25 @@
+{
+  "entity_id": "sensor.pvinverter_json",
+  "state": "26.01",
+  "attributes": {
+    "state_class": "measurement",
+    "power": 2380,
+    "energy": 15140.43,
+    "l1_v": 239.5,
+    "l2_v": 237,
+    "l3_v": 238.3,
+    "l1_i": 3.239,
+    "l2_i": 3.243,
+    "l3_i": 3.248,
+    "friendly_name": "pvinverter_json",
+    "unit_of_measurement": "kWh"
+  },
+  "last_changed": "2025-07-08T14:27:30.210832+00:00",
+  "last_reported": "2025-07-08T14:27:30.217947+00:00",
+  "last_updated": "2025-07-08T14:27:30.217947+00:00",
+  "context": {
+    "id": "01JZN6YH859ZXMKQ7J20KRE2DM",
+    "parent_id": null,
+    "user_id": null
+  }
+}
