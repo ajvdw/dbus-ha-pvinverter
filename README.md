@@ -37,17 +37,17 @@ Within the project there is a file `/data/dbus-ha-pvinverter/config.ini` - just 
 
 python /data/dbus-huaweisun2000-pvinverter/dbus-huaweisun2000-pvinverter.py
 
-###Also useful:
+### Also useful:
 
 tail -f /var/log/dbus-ha-pvinverter/current | tai64nlocal
 
-###Stop the script
+### Stop the script
 svc -d /service/dbus-ha-pvinverter
 
-###Start the script
+### Start the script
 svc -u /service/dbus-ha-pvinverter
 
-###Restart the script
+### Restart the script
 If you want to restart the script, for example after changing it, just run the following command:
 
 sh /data/dbus-ha-pvinverter/restart.sh
