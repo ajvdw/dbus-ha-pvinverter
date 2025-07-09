@@ -39,6 +39,7 @@ class DbusHAPVInverterService:
     
         # Create the mandatory objects
         self._dbusservice.add_path('/DeviceInstance', deviceinstance)
+        self._dbusservice.add_path('/DeviceType', 192)  #Copied from Fronius API
         self._dbusservice.add_path('/ProductId', productid)
         self._dbusservice.add_path('/ProductName', productname)
         self._dbusservice.add_path('/CustomName', customname)
