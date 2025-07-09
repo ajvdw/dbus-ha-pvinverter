@@ -43,7 +43,7 @@ template:
           l1_i: "{{ states('sensor.inverter_phase_a_current') }}"
           l2_i: "{{ states('sensor.inverter_phase_b_current') }}"
           l3_i: "{{ states('sensor.inverter_phase_c_current') }}" 
-          friendly_name: "PV Inverter Measurements"
+          unique_id: "000001"
 ```
 
 ### Change config.ini
