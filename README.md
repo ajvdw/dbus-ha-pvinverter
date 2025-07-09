@@ -23,6 +23,29 @@ rm main.zip
 ```
 ⚠️ Check configuration after that - because service is already installed an running and with wrong connection data (host, username, pwd) you will spam the log-file
 
+
+### Add a template sensor
+Copy the following to configuration.yaml in HomeAssistant
+```
+template:
+  - sensor:
+      - name: "pvinverter_json"
+        unique_id: "pvinverter_01_json"
+        unit_of_measurement: "kWh"
+        state_class: measurement
+        state: "{{ states('sensor.inverter_daily_yield')|float }}"
+        attributes:
+          power: "{{ states('sensor.inverter_input_power') }}"
+          energy: "{{ states('sensor.inverter_total_yield')}}"
+          l1_v: "{{ states('sensor.inverter_phase_a_voltage') }}"
+          l2_v: "{{ states('sensor.inverter_phase_b_voltage') }}"
+          l3_v: "{{ states('sensor.inverter_phase_c_voltage') }}"
+          l1_i: "{{ states('sensor.inverter_phase_a_current') }}"
+          l2_i: "{{ states('sensor.inverter_phase_b_current') }}"
+          l3_i: "{{ states('sensor.inverter_phase_c_current') }}" 
+          friendly_name: "PV Inverter Measurements"
+```
+
 ### Change config.ini
 Within the project there is a file `/data/dbus-ha-pvinverter/config.ini` - just change the values - most important is the host
 
